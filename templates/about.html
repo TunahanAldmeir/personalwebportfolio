@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>About me</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/about.css'%}">
+	<link rel="icon" href="{% static 'img/brief.png' %}" type="image/png"><link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+     <div>
+		 <nav>
+			 <a class="logo"  href="{% url 'index' %}" >Port<span>folio</span></a>
+			 <ul>
+				 <li><a style="font-size:15px" href="{% url 'index' %}" >Home</a></li>
+				 <li><a style="font-size:15px"  href="{% url 'user_about' %}" >About</a></li>
+				 <li><a style="font-size:15px" href="{% url 'contact' %}" target="_blank" >Contact</a></li>
+			 </ul>
+		 </nav>
+	 </div>
+    <div class="container" >
+		    {%  for us in users %}
+		<h1 style="color:#3300CC">{{us.kul_ad}}</h1>
+		<h2  >Web Devoloper</h2>
+		<div class="image">
+			<img src="{{us.user_image.url}}">
+		</div>
+		<p style="color:#3300CC;font-weight:bold;">
+			{{us.about_user}}
+		</p>
+		    {% endfor %}
+		<a href="{% url 'contact' %}" class="btn">Get In Touch</a>
+	</div>
+
+</body>
+</html>
